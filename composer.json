@@ -1,0 +1,80 @@
+{
+    "name": "ernestdefoe/pigeonhole",
+    "description": "Folders for Flarum's private messages. Each member files their own conversations into folders with a colour and an icon, archives what is done until a new message brings it back, and sees what is unread in each folder. Works with Group Messages.",
+    "keywords": ["flarum", "flarum-extension", "messages", "private messages", "folders", "archive", "inbox"],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ernest Defoe",
+            "email": "ernestdefoe@gmail.com"
+        }
+    ],
+    "homepage": "https://github.com/ernestdefoe/pigeonhole",
+    "support": {
+        "issues": "https://github.com/ernestdefoe/pigeonhole/issues",
+        "source": "https://github.com/ernestdefoe/pigeonhole"
+    },
+    "funding": [
+        {
+            "type": "other",
+            "url": "https://buymeacoffee.com/ernestdefoe"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "flarum/core": "^2.0",
+        "flarum/messages": "^2.0"
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Pigeonhole",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-folder-tree",
+                "backgroundColor": "#0f766e",
+                "color": "#ffffff"
+            },
+            "optional-dependencies": [
+                "ernestdefoe/group-messages",
+                "flarum/gdpr"
+            ]
+        }
+    },
+    "minimum-stability": "beta",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Ernestdefoe\\Pigeonhole\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ernestdefoe\\Pigeonhole\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "ernestdefoe/group-messages": "^2.1",
+        "flarum/gdpr": "^2.0",
+        "flarum/phpstan": "^2.0",
+        "flarum/tags": "^2.0",
+        "flarum/testing": "^2.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": [
+            "@test:integration"
+        ],
+        "test:integration": "phpunit -c tests/phpunit.integration.xml",
+        "test:setup": "@php tests/integration/setup.php",
+        "analyse:phpstan": "phpstan analyse"
+    },
+    "scripts-descriptions": {
+        "test": "Runs all tests.",
+        "test:integration": "Runs all integration tests.",
+        "test:setup": "Sets up a database for use with integration tests. Execute this only once.",
+        "analyse:phpstan": "Run static analysis"
+    }
+}
