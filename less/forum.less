@@ -1,0 +1,299 @@
+// A folder's own colour, where it has one.
+.PigeonholeIcon {
+  color: var(--pigeonhole-color, var(--muted-color));
+}
+
+// The folder bar above the conversation list.
+.PigeonholeBar {
+  margin: 0 0 10px;
+  // Room for the focus ring.
+  padding: 2px;
+}
+// Two rows of chips (each 26px high, 6px apart).
+.PigeonholeBar--collapsed {
+  max-height: 62px;
+  overflow: hidden;
+}
+// Beside the first row of chips, the rest wrap under them at full width.
+.PigeonholeBar-more.Button--icon {
+  float: right;
+  width: 26px;
+  height: 26px;
+  margin-left: 4px;
+  padding: 0;
+}
+.PigeonholeBar-chips {
+  display: contents;
+}
+.PigeonholeBar-chip {
+  display: inline-flex;
+  margin: 0 6px 6px 0;
+  vertical-align: top;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  max-width: 100%;
+  // One height for every chip, text or icon only, whatever a theme does to
+  // buttons: an icon is shorter than a line of text.
+  box-sizing: border-box;
+  height: 26px;
+  min-height: 0;
+  padding: 0 9px;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  font-size: 13px;
+  line-height: 18px;
+  background: var(--control-bg);
+  color: var(--control-color);
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    background: var(--control-bg-shaded, var(--control-bg));
+    color: var(--text-color);
+  }
+
+  &.active {
+    border-color: var(--pigeonhole-color, var(--primary-color));
+    background: var(--body-bg);
+    color: var(--text-color);
+    font-weight: bold;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 1px;
+  }
+}
+.PigeonholeBar-icon {
+  color: var(--pigeonhole-color, inherit);
+}
+.PigeonholeBar-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.PigeonholeBar-count {
+  padding: 0 6px;
+  border-radius: 9px;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 16px;
+  background: var(--primary-color);
+  color: var(--body-bg);
+}
+.PigeonholeBar-more {
+  color: var(--muted-color);
+}
+.PigeonholeBar-chip--icon {
+  min-width: 34px;
+  padding: 0 8px;
+}
+// Dragged rows ride over the others; dropping a conversation lights the target.
+.is-dragging {
+  position: relative;
+  z-index: 2;
+}
+.PigeonholeBar-chip.is-dragging {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.PigeonholeManageModal-row.is-dragging {
+  background: var(--control-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: var(--border-radius);
+}
+.is-dropTarget {
+  outline: 2px dashed var(--pigeonhole-color, var(--primary-color));
+  outline-offset: 1px;
+}
+
+// In a conversation list: which folder it is in.
+.PigeonholeChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 50%;
+  margin-right: 6px;
+  padding: 0 6px;
+  border-radius: 9px;
+  font-size: 11px;
+  line-height: 17px;
+  vertical-align: 1px;
+  background: var(--control-bg);
+  color: var(--control-color);
+
+  .PigeonholeIcon {
+    font-size: 10px;
+  }
+}
+.PigeonholeChip-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.PigeonholeEmpty {
+  padding: 20px 15px;
+  color: var(--muted-color);
+  text-align: center;
+}
+
+// Folder dialogs.
+.PigeonholeEditModal .Form > .Form-group {
+  width: 100%;
+  gap: 8px;
+
+  > label {
+    font-weight: bold;
+  }
+  .helpText {
+    margin: 0;
+  }
+}
+.PigeonholeEditModal-name {
+  width: 100%;
+
+  .FormControl {
+    flex: 1;
+  }
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .PigeonholeIcon {
+    font-size: 20px;
+    width: 24px;
+    text-align: center;
+  }
+}
+.PigeonholeSwatches {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.PigeonholeSwatch {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background: var(--pigeonhole-color);
+  cursor: pointer;
+
+  &.active {
+    box-shadow:
+      0 0 0 2px var(--body-bg),
+      0 0 0 4px var(--pigeonhole-color, var(--muted-color));
+  }
+}
+.PigeonholeSwatch--none {
+  width: auto;
+  padding: 0 10px;
+  border-radius: 14px;
+  border-color: var(--control-bg);
+  background: none;
+  color: var(--control-color);
+  font-size: 12px;
+}
+.PigeonholeSwatch-custom {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 2px dashed var(--muted-color);
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  overflow: hidden;
+
+  &::-webkit-color-swatch-wrapper {
+    padding: 2px;
+  }
+  &::-webkit-color-swatch {
+    border: 0;
+    border-radius: 50%;
+  }
+  &::-moz-color-swatch {
+    border: 0;
+    border-radius: 50%;
+  }
+}
+.PigeonholeIcons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+
+  .active {
+    background: var(--control-bg);
+    color: var(--primary-color);
+  }
+}
+.PigeonholeManageModal-empty {
+  color: var(--muted-color);
+}
+.PigeonholeManageModal-list,
+.PigeonholeMoveModal-list {
+  margin: 0 0 15px;
+  padding: 0;
+  list-style: none;
+}
+.PigeonholeManageModal-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 6px 4px 0;
+  border-radius: var(--border-radius);
+
+  &.is-dragging {
+    background: var(--body-bg);
+  }
+}
+.PigeonholeManageModal-handle {
+  padding: 8px 6px;
+  color: var(--muted-color);
+  cursor: grab;
+  touch-action: none;
+}
+.PigeonholeManageModal-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  small {
+    display: block;
+    color: var(--muted-color);
+  }
+}
+.PigeonholeMoveModal-choice {
+  width: 100%;
+  margin-bottom: 4px;
+  text-align: left;
+  background: none;
+
+  justify-content: flex-start;
+
+  .Button-label,
+  .Button-labelText {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 100%;
+  }
+
+  &.active,
+  &:hover {
+    background: var(--control-bg);
+  }
+}
+.PigeonholeMoveModal-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
