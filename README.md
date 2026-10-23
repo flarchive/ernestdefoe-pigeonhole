@@ -2,13 +2,15 @@
 
 > **Read-only archive of released versions of ernestdefoe/pigeonhole.** Not for installation: use [Packagist](https://packagist.org/packages/ernestdefoe/pigeonhole) or the [upstream repository](https://github.com/ernestdefoe/pigeonhole).
 
-**0** versions archived · Latest: [`v1.1.0`](https://github.com/flarchive/ernestdefoe-pigeonhole/tree/archive/v1.1.0) · License: `MIT` · Flarum: `^2.0`
+**3** versions archived · Latest: [`v1.1.0`](https://github.com/flarchive/ernestdefoe-pigeonhole/tree/archive/v1.1.0) · License: `MIT` · Flarum: `^2.0`
 
 ## Archived Versions
 
 | Version | Released | Flarum | Source |
 |---|---|---|---|
-| — | — | — | — |
+| `v1.0.0` | 2026-10-21 | `^2.0` | [Browse](https://github.com/flarchive/ernestdefoe-pigeonhole/tree/archive/v1.0.0) |
+| `v1.0.1` | 2026-10-21 | `^2.0` | [Browse](https://github.com/flarchive/ernestdefoe-pigeonhole/tree/archive/v1.0.1) |
+| `v1.1.0` | 2026-10-23 | `^2.0` | [Browse](https://github.com/flarchive/ernestdefoe-pigeonhole/tree/archive/v1.1.0) |
 
 Catalog entry: [packages/ernestdefoe-pigeonhole.json](https://github.com/flarchive/archive-index/blob/main/packages/ernestdefoe-pigeonhole.json)
 
